@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="934" height="575" viewBox="0 0 934 575">
+<defs>
+</defs>
+<metadata id="diagram-manifest" data-schema-version="1.0"><![CDATA[{"groups":[{"color":"#2E7D32","id":"main","label":"Fragpipe Line"},{"color":"#E65100","id":"gene_line","label":"Gene Prediction Line"},{"color":"#01579B","id":"varus_line","label":"Varus Line"}],"height":575,"match":{"flags":"i","target":"fqProcessName","type":"regex"},"nodes":[{"groups":["main"],"h":12.0,"id":"auth","label":"Authentication ","patterns":[],"r":6.0,"region":"fragpipe_part1","rx":6.0,"w":12.0,"x":101.5,"y":120.0},{"groups":["main"],"h":12.0,"id":"download","label":" Auth Download","patterns":[],"r":6.0,"region":"fragpipe_part1","rx":6.0,"w":12.0,"x":161.5,"y":120.0},{"groups":["main"],"h":12.0,"id":"fragpipe","label":" Fragpipe Execution","patterns":[],"r":6.0,"region":"fragpipe_part2","rx":6.0,"w":12.0,"x":605.0,"y":200.0},{"groups":["main"],"h":12.0,"id":"manifest","label":"Manifest ","patterns":[],"r":6.0,"region":"fragpipe_part2","rx":6.0,"w":12.0,"x":399.5,"y":160.0},{"groups":["main"],"h":12.0,"id":"decoy","label":"Decoy & Contaminants ","patterns":[],"r":6.0,"region":"fragpipe_part2","rx":6.0,"w":12.0,"x":399.5,"y":120.0},{"groups":["main"],"h":12.0,"id":"workflow","label":"Workflow Template ","patterns":[],"r":6.0,"region":"fragpipe_part2","rx":6.0,"w":12.0,"x":459.5,"y":120.0},{"groups":["gene_line"],"h":12.0,"id":"prediction","label":"Helixer / Tiberius ","patterns":[],"r":6.0,"region":"gene_prediction","rx":6.0,"w":12.0,"x":119.5,"y":350.0},{"groups":["gene_line"],"h":12.0,"id":"gff","label":" GFF/GTF to FAA","patterns":[],"r":6.0,"region":"gene_prediction","rx":6.0,"w":12.0,"x":179.5,"y":350.0},{"groups":["varus_line"],"h":12.0,"id":"taxonomy","label":"Get Taxonomy ","patterns":[],"r":6.0,"region":"varus_workflow","rx":6.0,"w":12.0,"x":363.5,"y":350.0},{"groups":["varus_line"],"h":12.0,"id":"varus","label":" VARUS","patterns":[],"r":6.0,"region":"varus_workflow","rx":6.0,"w":12.0,"x":423.5,"y":350.0},{"groups":["gene_line","main","varus_line"],"h":20.0,"id":"gapms","label":" GAP-MS","patterns":[],"r":6.0,"region":"reporting","rx":6.0,"w":12.0,"x":824.5,"y":124.0}],"regions":[{"id":"fragpipe_part1","label":"Tools Download"},{"id":"fragpipe_part2","label":"Fragpipe Execution"},{"id":"gene_prediction","label":"Gene Prediction"},{"id":"varus_workflow","label":"Varus Workflow"},{"id":"reporting","label":"GAP-MS Integration"}],"title":"","version":"1.0","width":934}]]></metadata>
+<style>.nf-metro-title { fill: var(--nfm-map-title-color, #111111); }
+.nf-metro-station-label { fill: var(--nfm-map-label-color, #333333); }
+.nf-metro-section-box { fill: var(--nfm-map-section-fill, #ededed); stroke: var(--nfm-map-section-stroke, #e6e6e6); }
+.nf-metro-section-label { fill: var(--nfm-map-section-label-color, #666666); }
+.nf-metro-group-label { fill: var(--nfm-map-section-label-color, #666666); }
+.nf-metro-group-underline { stroke: var(--nfm-map-section-label-color, #666666); }
+.nf-metro-legend-bg { fill: var(--nfm-map-legend-bg, rgba(255, 255, 255, 0.8)); }
+.nf-metro-legend-text { fill: var(--nfm-map-legend-text-color, #333333); }
+.nf-metro-marker-stroke { stroke: var(--nfm-map-marker-stroke, #333333); }
+.nf-metro-label-halo { fill: var(--nfm-map-bg, #ffffff); stroke: var(--nfm-map-bg, #ffffff); }</style>
+<style>@media (prefers-color-scheme: dark) {
+    .nf-metro-section-label { fill: #d0d0d0; }
+    .nf-metro-section-num-circle { fill: #777777; }
+    .nf-metro-title { fill: #ffffff; }
+}
+</style>
+<rect x="30.0" y="70.0" width="198.5" height="100.0" rx="8" ry="8" fill="#ededed" stroke="#e6e6e6" stroke-width="1.0" class="nf-metro-section-box" data-section-id="fragpipe_part1" data-section-lines="main" />
+<circle cx="41.0" cy="55.0" r="11" fill="#333333" class="nf-metro-section-num-circle" data-section-id="fragpipe_part1" />
+<text x="41.0" y="55.0" font-size="12" fill="#ffffff" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dy="0.3em" data-section-id="fragpipe_part1">1</text>
+<text x="57.0" y="55.0" font-size="17.0" fill="#666666" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" dy="0.3em" class="nf-metro-section-label" data-section-id="fragpipe_part1">Tools Download</text>
+<rect x="301.0" y="70.0" width="393.5" height="180.0" rx="8" ry="8" fill="#ededed" stroke="#e6e6e6" stroke-width="1.0" class="nf-metro-section-box" data-section-id="fragpipe_part2" data-section-lines="main" />
+<circle cx="312.0" cy="55.0" r="11" fill="#333333" class="nf-metro-section-num-circle" data-section-id="fragpipe_part2" />
+<text x="312.0" y="55.0" font-size="12" fill="#ffffff" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dy="0.3em" data-section-id="fragpipe_part2">3</text>
+<text x="328.0" y="55.0" font-size="17.0" fill="#666666" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" dy="0.3em" class="nf-metro-section-label" data-section-id="fragpipe_part2">Fragpipe Execution</text>
+<rect x="30.0" y="300.0" width="221.0" height="100.0" rx="8" ry="8" fill="#ededed" stroke="#e6e6e6" stroke-width="1.0" class="nf-metro-section-box" data-section-id="gene_prediction" data-section-lines="gene_line" />
+<circle cx="41.0" cy="285.0" r="11" fill="#333333" class="nf-metro-section-num-circle" data-section-id="gene_prediction" />
+<text x="41.0" y="285.0" font-size="12" fill="#ffffff" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dy="0.3em" data-section-id="gene_prediction">2</text>
+<text x="57.0" y="285.0" font-size="17.0" fill="#666666" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" dy="0.3em" class="nf-metro-section-label" data-section-id="gene_prediction">Gene Prediction</text>
+<rect x="301.0" y="300.0" width="172.5" height="100.0" rx="8" ry="8" fill="#ededed" stroke="#e6e6e6" stroke-width="1.0" class="nf-metro-section-box" data-section-id="varus_workflow" data-section-lines="varus_line" />
+<circle cx="312.0" cy="285.0" r="11" fill="#333333" class="nf-metro-section-num-circle" data-section-id="varus_workflow" />
+<text x="312.0" y="285.0" font-size="12" fill="#ffffff" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dy="0.3em" data-section-id="varus_workflow">4</text>
+<text x="328.0" y="285.0" font-size="17.0" fill="#666666" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" dy="0.3em" class="nf-metro-section-label" data-section-id="varus_workflow">Varus Workflow</text>
+<rect x="774.5" y="70.0" width="100.0" height="100.0" rx="8" ry="8" fill="#ededed" stroke="#e6e6e6" stroke-width="1.0" class="nf-metro-section-box" data-section-id="reporting" data-section-lines="gene_line,main,varus_line" />
+<circle cx="785.5" cy="55.0" r="11" fill="#333333" class="nf-metro-section-num-circle" data-section-id="reporting" />
+<text x="785.5" y="55.0" font-size="12" fill="#ffffff" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dy="0.3em" data-section-id="reporting">5</text>
+<text x="801.5" y="55.0" font-size="17.0" fill="#666666" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" dy="0.3em" class="nf-metro-section-label" data-section-id="reporting">GAP-MS Integration</text>
+<path d="M363.5,350.0 L423.5,350.0" stroke="#01579B" stroke-width="3.0" stroke-linecap="round" class="metro-line-varus_line" data-line-id="varus_line" />
+<path d="M423.5,350.0 L473.5,350.0" stroke="#01579B" stroke-width="3.0" stroke-linecap="round" class="metro-line-varus_line" data-line-id="varus_line" />
+<path d="M774.5,128.0 L824.5,128.0" stroke="#01579B" stroke-width="3.0" stroke-linecap="round" class="metro-line-varus_line" data-line-id="varus_line" />
+<path d="M473.5,350.0 L720.5,350.0 Q734.5,350.0,734.5,336.0 L734.5,142.0 Q734.5,128.0,748.5,128.0 L774.5,128.0" stroke="#01579B" stroke-width="3.0" fill="none" stroke-linecap="round" stroke-linejoin="round" class="metro-line-varus_line" data-line-id="varus_line" />
+<path d="M119.5,350.0 L179.5,350.0" stroke="#E65100" stroke-width="3.0" stroke-linecap="round" class="metro-line-gene_line" data-line-id="gene_line" />
+<path d="M179.5,350.0 L251.0,350.0" stroke="#E65100" stroke-width="3.0" stroke-linecap="round" class="metro-line-gene_line" data-line-id="gene_line" />
+<path d="M774.5,124.0 L824.5,124.0" stroke="#E65100" stroke-width="3.0" stroke-linecap="round" class="metro-line-gene_line" data-line-id="gene_line" />
+<path d="M251.0,350.0 L266.0,350.0 Q276.0,350.0,276.0,360.0 L276.0,415.0 Q276.0,425.0,286.0,425.0 L720.5,425.0 Q738.5,425.0,738.5,407.0 L738.5,134.0 Q738.5,124.0,748.5,124.0 L774.5,124.0" stroke="#E65100" stroke-width="3.0" fill="none" stroke-linecap="round" stroke-linejoin="round" class="metro-line-gene_line" data-line-id="gene_line" />
+<path d="M101.5,120.0 L161.5,120.0" stroke="#2E7D32" stroke-width="3.0" stroke-linecap="round" class="metro-line-main" data-line-id="main" />
+<path d="M399.5,160.0 L479.5,160.0 Q489.5,160.0,495.5,168.0 L513.5,192.0 Q519.5,200.0,529.5,200.0 L605.0,200.0" stroke="#2E7D32" stroke-width="3.0" fill="none" stroke-linecap="round" stroke-linejoin="round" class="metro-line-main" data-line-id="main" />
+<path d="M399.5,120.0 L459.5,120.0" stroke="#2E7D32" stroke-width="3.0" stroke-linecap="round" class="metro-line-main" data-line-id="main" />
+<path d="M459.5,120.0 L479.5,120.0 Q489.5,120.0,493.0112344158839,129.36329177569044 L515.9887655841161,190.63670822430956 Q519.5,200.0,529.5,200.0 L605.0,200.0" stroke="#2E7D32" stroke-width="3.0" fill="none" stroke-linecap="round" stroke-linejoin="round" class="metro-line-main" data-line-id="main" />
+<path d="M161.5,120.0 L228.5,120.0" stroke="#2E7D32" stroke-width="3.0" stroke-linecap="round" class="metro-line-main" data-line-id="main" />
+<path d="M301.0,200.0 L605.0,200.0" stroke="#2E7D32" stroke-width="3.0" stroke-linecap="round" class="metro-line-main" data-line-id="main" />
+<path d="M605.0,200.0 L694.5,200.0" stroke="#2E7D32" stroke-width="3.0" stroke-linecap="round" class="metro-line-main" data-line-id="main" />
+<path d="M774.5,120.0 L824.5,120.0" stroke="#2E7D32" stroke-width="3.0" stroke-linecap="round" class="metro-line-main" data-line-id="main" />
+<path d="M228.5,120.0 L266.0,120.0 Q276.0,120.0,276.0,130.0 L276.0,190.0 Q276.0,200.0,286.0,200.0 L301.0,200.0" stroke="#2E7D32" stroke-width="3.0" fill="none" stroke-linecap="round" stroke-linejoin="round" class="metro-line-main" data-line-id="main" />
+<path d="M694.5,200.0 L720.5,200.0 Q730.5,200.0,730.5,190.0 L730.5,138.0 Q730.5,120.0,748.5,120.0 L774.5,120.0" stroke="#2E7D32" stroke-width="3.0" fill="none" stroke-linecap="round" stroke-linejoin="round" class="metro-line-main" data-line-id="main" />
+<g class="nf-metro-station-group" data-node-id="auth" data-node-cx="101.5" data-node-cy="120.0" data-node-r="6.0" data-node-groups="main" data-node-region="fragpipe_part1" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="95.5" y="114.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="auth" data-station-lines="main" data-station-label="Authentication " data-section-id="fragpipe_part1" data-section-name="Tools Download" />
+</g>
+<g class="nf-metro-station-group" data-node-id="download" data-node-cx="161.5" data-node-cy="120.0" data-node-r="6.0" data-node-groups="main" data-node-region="fragpipe_part1" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="155.5" y="114.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="download" data-station-lines="main" data-station-label=" Auth Download" data-section-id="fragpipe_part1" data-section-name="Tools Download" />
+</g>
+<g class="nf-metro-station-group" data-node-id="fragpipe" data-node-cx="605.0" data-node-cy="200.0" data-node-r="6.0" data-node-groups="main" data-node-region="fragpipe_part2" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="599.0" y="194.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="fragpipe" data-station-lines="main" data-station-label=" Fragpipe Execution" data-section-id="fragpipe_part2" data-section-name="Fragpipe Execution" />
+</g>
+<g class="nf-metro-station-group" data-node-id="manifest" data-node-cx="399.5" data-node-cy="160.0" data-node-r="6.0" data-node-groups="main" data-node-region="fragpipe_part2" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="393.5" y="154.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="manifest" data-station-lines="main" data-station-label="Manifest " data-section-id="fragpipe_part2" data-section-name="Fragpipe Execution" />
+</g>
+<g class="nf-metro-station-group" data-node-id="decoy" data-node-cx="399.5" data-node-cy="120.0" data-node-r="6.0" data-node-groups="main" data-node-region="fragpipe_part2" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="393.5" y="114.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="decoy" data-station-lines="main" data-station-label="Decoy &amp; Contaminants " data-section-id="fragpipe_part2" data-section-name="Fragpipe Execution" />
+</g>
+<g class="nf-metro-station-group" data-node-id="workflow" data-node-cx="459.5" data-node-cy="120.0" data-node-r="6.0" data-node-groups="main" data-node-region="fragpipe_part2" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="453.5" y="114.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="workflow" data-station-lines="main" data-station-label="Workflow Template " data-section-id="fragpipe_part2" data-section-name="Fragpipe Execution" />
+</g>
+<g class="nf-metro-station-group" data-node-id="prediction" data-node-cx="119.5" data-node-cy="350.0" data-node-r="6.0" data-node-groups="gene_line" data-node-region="gene_prediction" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="113.5" y="344.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="prediction" data-station-lines="gene_line" data-station-label="Helixer / Tiberius " data-section-id="gene_prediction" data-section-name="Gene Prediction" />
+</g>
+<g class="nf-metro-station-group" data-node-id="gff" data-node-cx="179.5" data-node-cy="350.0" data-node-r="6.0" data-node-groups="gene_line" data-node-region="gene_prediction" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="173.5" y="344.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="gff" data-station-lines="gene_line" data-station-label=" GFF/GTF to FAA" data-section-id="gene_prediction" data-section-name="Gene Prediction" />
+</g>
+<g class="nf-metro-station-group" data-node-id="taxonomy" data-node-cx="363.5" data-node-cy="350.0" data-node-r="6.0" data-node-groups="varus_line" data-node-region="varus_workflow" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="357.5" y="344.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="taxonomy" data-station-lines="varus_line" data-station-label="Get Taxonomy " data-section-id="varus_workflow" data-section-name="Varus Workflow" />
+</g>
+<g class="nf-metro-station-group" data-node-id="varus" data-node-cx="423.5" data-node-cy="350.0" data-node-r="6.0" data-node-groups="varus_line" data-node-region="varus_workflow" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="417.5" y="344.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="varus" data-station-lines="varus_line" data-station-label=" VARUS" data-section-id="varus_workflow" data-section-name="Varus Workflow" />
+</g>
+<g class="nf-metro-station-group" data-node-id="gapms" data-node-cx="824.5" data-node-cy="124.0" data-node-r="6.0" data-node-groups="gene_line,main,varus_line" data-node-region="reporting" data-node-w="12.0" data-node-h="20.0" data-node-rx="6.0">
+<rect x="818.5" y="114.0" width="12.0" height="20.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="gapms" data-station-lines="gene_line,main,varus_line" data-station-label=" GAP-MS" data-section-id="reporting" data-section-name="GAP-MS Integration" />
+</g>
+<text x="399.5" y="130.4" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Decoy &amp; Contaminants </text>
+<text x="399.5" y="130.4" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="decoy" class="nf-metro-station-label">Decoy &amp; Contaminants </text>
+<text x="399.5" y="171.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Manifest </text>
+<text x="399.5" y="171.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="manifest" class="nf-metro-station-label">Manifest </text>
+<text x="101.5" y="131.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Authentication </text>
+<text x="101.5" y="131.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="auth" class="nf-metro-station-label">Authentication </text>
+<text x="119.5" y="361.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Helixer / Tiberius </text>
+<text x="119.5" y="361.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="prediction" class="nf-metro-station-label">Helixer / Tiberius </text>
+<text x="363.5" y="361.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Get Taxonomy </text>
+<text x="363.5" y="361.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="taxonomy" class="nf-metro-station-label">Get Taxonomy </text>
+<text x="824.5" y="139.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging"> GAP-MS</text>
+<text x="824.5" y="139.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="gapms" class="nf-metro-station-label"> GAP-MS</text>
+<text x="459.5" y="106.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Workflow Template </text>
+<text x="459.5" y="106.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="workflow" class="nf-metro-station-label">Workflow Template </text>
+<text x="161.5" y="106.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto"> Auth Download</text>
+<text x="161.5" y="106.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="download" class="nf-metro-station-label"> Auth Download</text>
+<text x="179.5" y="336.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto"> GFF/GTF to FAA</text>
+<text x="179.5" y="336.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="gff" class="nf-metro-station-label"> GFF/GTF to FAA</text>
+<text x="423.5" y="336.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto"> VARUS</text>
+<text x="423.5" y="336.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="varus" class="nf-metro-station-label"> VARUS</text>
+<text x="605.0" y="211.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging"> Fragpipe Execution</text>
+<text x="605.0" y="211.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="fragpipe" class="nf-metro-station-label"> Fragpipe Execution</text>
+<rect x="30.0" y="455.0" width="236.0" height="96.0" rx="6" ry="6" fill="rgba(255, 255, 255, 0.8)" class="nf-metro-legend-bg" />
+<path d="M42.0,479.0 L66.0,479.0" stroke="#2E7D32" stroke-width="3.0" stroke-linecap="round" />
+<text x="78.0" y="479.0" font-size="16.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Fragpipe Line</text>
+<path d="M42.0,503.0 L66.0,503.0" stroke="#E65100" stroke-width="3.0" stroke-linecap="round" />
+<text x="78.0" y="503.0" font-size="16.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Gene Prediction Line</text>
+<path d="M42.0,527.0 L66.0,527.0" stroke="#01579B" stroke-width="3.0" stroke-linecap="round" />
+<text x="78.0" y="527.0" font-size="16.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Varus Line</text>
+<text x="904.0" y="567.0" font-size="8" fill="rgba(150, 150, 150, 0.6)" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" text-anchor="end">created with nf-metro v1.1.0</text>
+</svg>
