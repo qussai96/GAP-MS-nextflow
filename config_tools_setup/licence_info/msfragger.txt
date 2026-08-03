@@ -1,0 +1,36 @@
+=====================================================================
+                    FRAGPIPE LICENSE INFORMATION
+=====================================================================
+
+This pipeline uses FragPipe, which includes several licensed components.
+By proceeding, you agree to the following license terms:
+
+---------------------------------------------------------------------
+1. MSFragger License
+---------------------------------------------------------------------
+MSFragger is licensed for academic use only under the Apache License 2.0.
+For commercial use, please contact the University of Michigan Office of
+Technology Transfer.
+
+Academic License: https://msfragger.nesvilab.org/
+Full License: https://github.com/Nesvilab/MSFragger/blob/master/LICENSE
+
+Key Terms:
+- Free for academic research and educational purposes
+- Commercial use requires a separate license
+- Cannot redistribute the software
+
+---------------------------------------------------------------------
+2. IonQuant License
+---------------------------------------------------------------------
+IonQuant is licensed under the Apache License 2.0 for academic use.
+
+License: https://github.com/Nesvilab/IonQuant/blob/master/LICENSE
+
+Key Terms:
+- Free for academic research
+- Commercial use requires separate licensing
+- Cannot redistribute the software
+=====================================================================
+
+Do you accept these additional license terms? (yes/no):
