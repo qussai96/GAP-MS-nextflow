@@ -32,6 +32,12 @@ If the components are not yet available, an automated download process is initia
 ### Nextflow config setup
 It is possible to change various settings in the nextflow.config file. If needed, the cluster configuration can be modified, including the CPU/GPU and memory resources allocated to individual processes.
 
+### VARUS Image Creation
+To build the VARUS Singularity container image required for the VARUS workflow step, run:
+```bash
+singularity build varus.sif varus.def
+```
+
 ### Running the Pipeline
 ```bash
 nextflow run main.nf \
