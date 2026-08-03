@@ -1,5 +1,6 @@
 # GAP-MS-nextflow
 A Nextflow pipeline connecting GAP-MS with upstream and downstream analysis, incorporating FragPipe, Tiberius/Helixer, and VARUS for Proteogenomics analysis.
+![Pipeline Workflow](pipeline-workflow.svg)
 
 ---
 
