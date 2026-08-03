@@ -3,7 +3,7 @@
 process FRAGPIPE {
     publishDir "Fragpipe_output/fragpipe", mode: 'copy'
 
-    container "fcyucn/fragpipe:latest" //opcja: ${params.fragpipe_version} 23.1v (taka sama jak w publication)
+    container "fcyucn/fragpipe:latest" //option: ${params.fragpipe_version} 23.1v (the same as in the GAP-MS publication)
     containerOptions "--cleanenv --writable-tmpfs --bind \$PWD,\$HOME/.config,${projectDir},${params.input_folder}"
 
     input:
