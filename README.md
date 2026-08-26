@@ -50,14 +50,15 @@ nextflow run main.nf \
 |Parameter|Description|
 |---------|-----------|
 | --raw_ms_files  | Path to the raw MS files folder (required) |
-| --fasta_file  | Path to the protein FASTA file (required)  |
 | --genome_fasta  | Path to the genome FASTA file (required)  |
+| --fasta_file  | Path to the protein FASTA file (optional) |
 
 **FragPipe Workflow**
 |Parameter|Description|
 |---------|-----------|
 | --config_tools_folder  | Path to the folder containing the required FragPipe tools if MSFragger, IonQuant, and DiaTracer (if avalible) |
 | --add_contaminants  | Enables or disables the addition of contaminants during the decoy generation step (default: true)  |
+| --fragpipe_workflow | Path to a custom workflow file for FragPipe |
 
 **Gene Prediction Workflow**
 |Parameter|Description|
@@ -65,6 +66,7 @@ nextflow run main.nf \
 | --genome_option  | Choice of gene prediction tool: Helixer or Tiberius (default: Tiberius) |
 | --lineage_helixer  | Helixer lineage model (default: land_plant)  |
 | --model_cfg  | Tiberius model configuration (default: angiosperms)   |
+| --prediction_tool | Path to the selected gene prediction tool (Helixer or Tiberius; if avalible) |
 
 **VARUS Workflow**
 |Parameter|Description|
