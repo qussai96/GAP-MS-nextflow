@@ -1,6 +1,7 @@
 # GAP-MS-nextflow
 A Nextflow pipeline connecting GAP-MS with upstream and downstream analysis, incorporating FragPipe, Tiberius/Helixer, and VARUS for Proteogenomics analysis.
-![Pipeline Workflow](pipeline-workflow.svg)
+
+![Pipeline Workflow](gap-flow.drawio.svg)
 
 ---
 
@@ -66,7 +67,7 @@ nextflow run main.nf \
 | --genome_option  | Choice of gene prediction tool: Helixer or Tiberius (default: Tiberius) |
 | --lineage_helixer  | Helixer lineage model (default: land_plant)  |
 | --model_cfg  | Tiberius model configuration (default: angiosperms)   |
-| --prediction_tool | Path to the selected gene prediction tool (Helixer or Tiberius; if avalible) |
+| --prediction_gff_file | Path to a user-provided GFF/GTF file. If supplied, Helixer/Tiberius is skipped; otherwise, the selected gene prediction tool generates the GFF/GTF file |
 
 **VARUS Workflow**
 |Parameter|Description|
