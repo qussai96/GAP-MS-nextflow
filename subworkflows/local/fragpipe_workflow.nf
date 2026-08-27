@@ -8,6 +8,7 @@ nextflow.enable.dsl=2
 include { AUTHENTICATION } from '../../modules/AUTHENTICATION.nf'
 include { AUTHENTICATION_DOWNLOAD } from '../../modules/AUTHENTICATION.nf'
 include { MANIFEST } from '../../modules/MANIFEST.nf'
+include { MERGE } from '../../modules/MERGE.nf'
 include { DECOY } from '../../modules/DECOY.nf'
 include { WORKFLOW } from '../../modules/WORKFLOW.nf'
 include { FRAGPIPE } from '../../modules/FRAGPIPE.nf'
@@ -19,6 +20,8 @@ workflow fragpipe_workflow {
     take:
         raw_ms_files
         fasta_ch  
+        faa_results
+        ch_varus
 
     main:
         def msfragger_jar_ch = Channel.empty()
@@ -32,6 +35,7 @@ workflow fragpipe_workflow {
             tools_dir.listFiles()?.any { it.name.startsWith("IonQuant") } &&
             tools_dir.listFiles()?.any { it.name.toLowerCase().startsWith("diatracer") }
 
+        def workflow_file = params.fragpipe_workflow ?: "${projectDir}/assets/workflow_template.workflow"
 
         // If the user has already downloaded the config tools and provided the path to the folder, the tool files are copied into config-tools folder in the project directory
         if (params.config_tools_folder || tools_already_present) {
@@ -43,8 +47,9 @@ workflow fragpipe_workflow {
                 destination_tools.mkdirs()
 
                 source_tools.eachDir { dir ->
+                    def dir_name = dir.name.toLowerCase()
 
-                    if (dir.name.startsWith("MSFragger") || dir.name.startsWith("IonQuant") || dir.name.startsWith("DiaTracer") ) {
+                    if (dir_name.startsWith("msfragger") || dir_name.startsWith("ionquant") || dir_name.startsWith("diatracer") ) {
 
                         println "COPY TOOL FOLDER: ${dir}"
 
@@ -72,9 +77,9 @@ workflow fragpipe_workflow {
                 }
 
             }
-            msfragger_jar_ch = Channel.fromPath("${projectDir}/config-tools/MSFragger-*/MSFragger*.jar")
-            ionquant_jar_ch = Channel.fromPath("${projectDir}/config-tools/IonQuant-*/IonQuant*.jar")
-            diatracer_jar_ch = Channel.fromPath("${projectDir}/config-tools/diaTracer-*/diaTracer*.jar")
+            msfragger_jar_ch = Channel.fromPath("${projectDir}/config-tools/[Mm][Ss][Ff]ragger-*/MSFragger*.jar")
+            ionquant_jar_ch = Channel.fromPath("${projectDir}/config-tools/[Ii]on[Qq]uant-*/IonQuant*.jar")
+            diatracer_jar_ch = Channel.fromPath("${projectDir}/config-tools/[Dd]ia[Tt]racer-*/[Dd]ia[Tt]racer*.jar")
             ready = Channel.of(true)
         }
 
@@ -119,15 +124,21 @@ workflow fragpipe_workflow {
             params.mode_type      
         )
 
+        MERGE(
+            fasta_ch.ifEmpty(file("NO_FILE")),
+            faa_results, //faa results from gene prediction subworkflow
+            ch_varus //varus results from varus subworkflow (optional)
+        )
+        
         DECOY(
             ready,
-            fasta_ch,
+            MERGE.out.combined_fasta,
             params.add_contaminants,
             params.decoy_tag
         )
 
         workflow_template = Channel.fromPath(
-            "${projectDir}/assets/workflow_template.workflow",
+            workflow_file,
             checkIfExists: true
         )
 

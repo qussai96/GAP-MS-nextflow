@@ -1,8 +1,9 @@
 #!/usr/bin/env nextflow
 
 process GAPMS{
+    stageInMode 'copy'
 
-    publishDir "GAPMS_output/", mode: 'copy'
+    publishDir "${projectDir}/GAPMS_output/", mode: 'copy'
 
     container "oras://docker.io/qussaiab96/gapms:latest"
 

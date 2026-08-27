@@ -3,7 +3,9 @@
 nextflow.enable.dsl=2
 
 process HELIXER{
-    publishDir "prediction_output", mode: 'copy'
+    stageInMode 'copy'
+
+    publishDir "${projectDir}/prediction_output", mode: 'copy'
 
     //https://github.com/usadellab/Helixer/tree/main
     container "docker://gglyptodon/helixer-docker:latest"
@@ -17,7 +19,6 @@ process HELIXER{
 
     script:
     """
-
     export TMPDIR="\$PWD/scratch_tmp"
     mkdir -p "\$TMPDIR"
 

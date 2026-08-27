@@ -3,7 +3,9 @@
 nextflow.enable.dsl=2
 
 process WORKFLOW{
-    publishDir "Fragpipe_output/workflow", mode: 'copy'
+    stageInMode 'copy'
+
+    publishDir "${projectDir}/Fragpipe_output/workflow", mode: 'copy'
 
     container "docker://fcyucn/fragpipe:latest"
 

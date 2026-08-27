@@ -2,11 +2,13 @@
 
 //wrie default = mode -= DDA+ 
 process MANIFEST{
-    publishDir "Fragpipe_output/manifest", mode: 'copy'
+    stageInMode 'copy'
+
+    publishDir "${projectDir}/Fragpipe_output/manifest", mode: 'copy'
     
     input:
         val ready
-        val input_folder
+        val raw_ms_files
         val mode_type
 
     output:
@@ -15,9 +17,9 @@ process MANIFEST{
     script:
     """
 
-    if [[ -d "${input_folder}" ]]; then
+    if [[ -d "${raw_ms_files}" ]]; then
 
-        for file in "${input_folder}"/*.{raw,RAW}; do
+        for file in "${raw_ms_files}"/*.{raw,RAW}; do
 
             [ -e "\$file" ] || continue
 

@@ -1,8 +1,9 @@
 #!/usr/bin/env nextflow
 
 process VARUS{
+    stageInMode 'copy'
 
-    publishDir "VARUS_output/", mode: 'copy'
+    publishDir "${projectDir}/VARUS_output/", mode: 'copy'
 
     container "varus.sif"
 

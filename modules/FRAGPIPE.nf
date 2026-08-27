@@ -1,11 +1,12 @@
 #!/usr/bin/env nextflow
 
 process FRAGPIPE {
-    publishDir "Fragpipe_output/fragpipe", mode: 'copy'
+    stageInMode 'copy'
+
+    publishDir "${projectDir}/Fragpipe_output/fragpipe", mode: 'copy'
 
     container "fcyucn/fragpipe:latest" //option: ${params.fragpipe_version} 23.1v (the same as in the GAP-MS publication)
     containerOptions "--cleanenv --writable-tmpfs --bind \$PWD,\$HOME/.config,${projectDir},${params.raw_ms_files}"
-
 
     input:
     path msfragger_jar
