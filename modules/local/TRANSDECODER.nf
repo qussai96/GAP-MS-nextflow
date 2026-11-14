@@ -6,7 +6,7 @@ process TRANSDECODER{
     publishDir "${projectDir}/VARUS_output/dataset", mode: 'copy'
 
     //container 'docker://biocontainers/transdecoder:v5.0.1-2-deb_cv1'
-    container '/home/students/s.blaszczak/work/singularity/transdecoder-5.0.1-procps.sif'
+    container 'transdecoder.sif'
 
     input:
     path input_file
