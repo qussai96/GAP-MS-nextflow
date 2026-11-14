@@ -1,0 +1,49 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%environment
+    export DEBIAN_FRONTEND=noninteractive
+    export PATH=/opt/VARUS:/opt/sratoolkit/bin:/opt/hisat2-2.2.1:/usr/local/bin:$PATH
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update && apt-get install -y \
+        build-essential \
+        git \
+        wget \
+        unzip \
+        python3 \
+        python3-pip \
+        zlib1g-dev \
+        libbamtools-dev \
+        bamtools \
+        samtools \
+        minimap2
+
+    # downloads sratoolkit (becaouse fastq-dump is a part of it)
+    cd /opt
+    wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz
+    tar -xzf sratoolkit.current-ubuntu64.tar.gz
+    rm sratoolkit.current-ubuntu64.tar.gz
+    mv sratoolkit.*-ubuntu64 sratoolkit
+
+    # HISAT2 download
+    cd /opt
+    wget https://github.com/DaehwanKimLab/hisat2/archive/refs/tags/v2.2.1.tar.gz -O hisat2.tar.gz
+    tar -xzf hisat2.tar.gz || unzip hisat2.zip
+    tar -xzf hisat2.tar.gz
+    cd hisat2-2.2.1 && make
+    ln -s /opt/hisat2-2.2.1/hisat2-build /opt/hisat2-2.2.1/hisat-build
+
+    # VARUS github cloning 
+    cd /opt
+    wget --user-agent="Mozilla/5.0" https://github.com/Gaius-Augustus/VARUS/archive/refs/heads/nextflow_pipeline.tar.gz -O varus.tar.gz
+    mkdir VARUS
+    tar -xzf varus.tar.gz -C VARUS --strip-components=1
+    cd VARUS
+    pip3 install --upgrade pip setuptools wheel
+    pip3 install ".[align]"
+
+    ln -sf /usr/local/bin/varus /usr/bin/varus
+
+    ln -sf /usr/bin/python3 /usr/bin/python
