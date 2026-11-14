@@ -5,13 +5,13 @@ nextflow.enable.dsl=2
 //SUBWORKFLOW
 
 //modules
-include { AUTHENTICATION } from '../../modules/AUTHENTICATION.nf'
-include { AUTHENTICATION_DOWNLOAD } from '../../modules/AUTHENTICATION.nf'
-include { MANIFEST } from '../../modules/MANIFEST.nf'
-include { MERGE } from '../../modules/MERGE.nf'
-include { DECOY } from '../../modules/DECOY.nf'
-include { WORKFLOW } from '../../modules/WORKFLOW.nf'
-include { FRAGPIPE } from '../../modules/FRAGPIPE.nf'
+include { AUTHENTICATION } from '../../modules/local/AUTHENTICATION.nf'
+include { AUTHENTICATION_DOWNLOAD } from '../../modules/local/AUTHENTICATION.nf'
+include { MANIFEST } from '../../modules/local/MANIFEST.nf'
+include { MERGE } from '../../modules/local/MERGE.nf'
+include { DECOY } from '../../modules/local/DECOY.nf'
+include { WORKFLOW } from '../../modules/local/WORKFLOW.nf'
+include { FRAGPIPE } from '../../modules/local/FRAGPIPE.nf'
 
 include { addDownloadInformation; token; checkEmailForToken } from '../../config_tools_setup/config_tools_init.nf'
 

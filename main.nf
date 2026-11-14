@@ -1,57 +1,98 @@
 #!/usr/bin/env nextflow
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    qussai96/gap-flow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Github : https://github.com/qussai96/gap-flow
+----------------------------------------------------------------------------------------
+*/
 
-//modules
-include { fragpipe_workflow } from './subworkflows/local/fragpipe_workflow.nf'
-include { gene_prediction } from './subworkflows/local/gene_prediction.nf'
-include { varus_workflow } from './subworkflows/local/varus_workflow.nf'
-include { GAPMS } from './modules/GAPMS.nf'
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    IMPORT FUNCTIONS / MODULES / SUBWORKFLOWS / WORKFLOWS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
 
-workflow{
+include { GAP_FLOW  } from './workflows/gap_flow.nf'
+include { ADDITIONAL } from './workflows/additional.nf'
+include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_nfcore_gap-flow_pipeline'
+include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_gap-flow_pipeline'
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    NAMED WORKFLOWS FOR PIPELINE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
 
-    if (!params.raw_ms_files || !params.genome_fasta) {
-        error " --raw_ms_files and --genome_fasta are not defined. Please provide the raw mass spectrometry files and genome fasta file."
-    }
+//
+// WORKFLOW: Run main analysis pipeline depending on type of input
+//
+workflow RAPORT {
 
-    fasta_ch = params.fasta_file // fasta file is optional, if not provided, the workflow will take the fasta file from Tiberius/Helixer output 
-        ? Channel.fromPath(params.fasta_file,checkIfExists: true)
-        : Channel.empty()
+    //take:
+    //samplesheet // channel: samplesheet read in from --input
 
-    genome_fasta = Channel.fromPath(
-        params.genome_fasta,
-        checkIfExists: true
+    main:
+
+    //
+    // WORKFLOW: Run pipeline
+    //
+    ADDITIONAL (
+        //samplesheet,
+        params.multiqc_config,
+        params.multiqc_logo,
+        params.multiqc_methods_description,
+        params.outdir,
     )
+    emit:
+    multiqc_report = ADDITIONAL.out.multiqc_report // channel: /path/to/multiqc_report.html
+}
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    RUN MAIN WORKFLOW
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+workflow {
+
+    main:
+    //
+    // SUBWORKFLOW: Run initialisation tasks
+    //
+    PIPELINE_INITIALISATION (
+        params.version,
+        params.validate_params,
+        params.monochrome_logs,
+        args,
+        params.outdir,
+        //params.input,
+        params.help,
+        params.help_full,
+        params.show_hidden
+    )
+
+    //
+    // WORKFLOW: Run main workflow
+    //
+    GAP_FLOW()
+
+    RAPORT ()
+
     
-    gene_prediction(
-        params.genome_option,
-        genome_fasta
-    )
-
-    def ch_varus = Channel.value(file("NO_FILE"))
-    def varus_faa = Channel.value(file("NO_FILE"))
-    def assembly = Channel.value(file("NO_FILE"))
-
-    if (params.taxID) { //if there is taxID VARUS is strated and BAM files are generated 
-        varus_workflow(
-            params.taxID,
-            genome_fasta
-        )
-        ch_varus = varus_workflow.out.varus_results // VARUS BAM file for GAPMS
-        varus_faa = varus_workflow.out.varus_faa // VARUS faa file for MERGE process in Fragpipe workflow
-        assembly = genome_fasta //required if VARUS is started
-    }
-
-    fragpipe_workflow (
-        params.raw_ms_files,
-        fasta_ch, 
-        gene_prediction.out.faa_results, 
-        varus_faa
-    )
-
-    GAPMS(
-        fragpipe_workflow.out.fragpipe_results, // -p takes peptide.tsv //always 
-        gene_prediction.out.gtf_results,  // -g; alway needed 
-        gene_prediction.out.faa_results, // -f
-        assembly, // -a; needed if -b
-        ch_varus //-b; needs -a
+    //
+    // SUBWORKFLOW: Run completion tasks
+    //
+    PIPELINE_COMPLETION (
+        params.email,
+        params.email_on_fail,
+        params.plaintext_email,
+        params.outdir,
+        params.monochrome_logs,
+        RAPORT.out.multiqc_report
     )
 }
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    THE END
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/

@@ -1,87 +1,91 @@
-# GAP-MS-nextflow
-A Nextflow pipeline connecting GAP-MS with upstream and downstream analysis, incorporating FragPipe, Tiberius/Helixer, and VARUS for Proteogenomics analysis.
+# qussai96/gap-flow
 
-![Pipeline Workflow](gap-flow.drawio.svg)
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Open_In_GitHub_Codespaces-black?labelColor=grey&logo=github)](https://github.com/codespaces/new/qussai96/gap-flow)
+[![GitHub Actions CI Status](https://github.com/qussai96/gap-flow/actions/workflows/nf-test.yml/badge.svg)](https://github.com/qussai96/gap-flow/actions/workflows/nf-test.yml)
+[![GitHub Actions Linting Status](https://github.com/qussai96/gap-flow/actions/workflows/linting.yml/badge.svg)](https://github.com/qussai96/gap-flow/actions/workflows/linting.yml)[![Cite with Zenodo](http://img.shields.io/badge/DOI-10.5281/zenodo.XXXXXXX-1073c8?labelColor=000000)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![nf-test](https://img.shields.io/badge/unit_tests-nf--test-337ab7.svg)](https://www.nf-test.com)
 
----
+[![Nextflow](https://img.shields.io/badge/version-%E2%89%A525.10.4-green?style=flat&logo=nextflow&logoColor=white&color=%230DC09D&link=https%3A%2F%2Fnextflow.io)](https://www.nextflow.io/)
+[![nf-core template version](https://img.shields.io/badge/nf--core_template-4.1.0-green?style=flat&logo=nfcore&logoColor=white&color=%2324B064&link=https%3A%2F%2Fnf-co.re)](https://github.com/nf-core/tools/releases/tag/4.1.0)
+[![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/en/latest/)
+[![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/)
+[![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg?labelColor=000000)](https://sylabs.io/docs/)
+[![Launch on Seqera Platform](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Seqera%20Platform-%234256e7)](https://cloud.seqera.io/launch?pipeline=https://github.com/qussai96/gap-flow)
 
-## Installation 
-### Prerequisites: Miniconda Installation
-For more information visit: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
-```bash
-curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
+## Introduction
+
+**qussai96/gap-flow** is a bioinformatics pipeline that ...
+
+<!-- TODO nf-core:
+   Complete this sentence with a 2-3 sentence summary of what types of data the pipeline ingests, a brief overview of the
+   major pipeline sections and the types of output it produces. You're giving an overview to someone new
+   to nf-core here, in 15-20 seconds. For an example, see https://github.com/nf-core/rnaseq/blob/master/README.md#introduction
+-->
+
+<!-- TODO nf-core: Include a figure that guides the user through the major workflow steps. Many nf-core
+     workflows use the "tube map" design for that. See https://nf-co.re/docs/community/brand/workflow-schematics#examples for examples.   -->
+<!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))2. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
+
+## Usage
+
+> [!NOTE]
+> If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/get_started/environment_setup/overview) on how to set-up Nextflow. Make sure to [test your setup](https://nf-co.re/docs/get_started/run-your-first-pipeline) with `-profile test` before running the workflow on actual data.
+
+<!-- TODO nf-core: Describe the minimum required steps to execute the pipeline, e.g. how to prepare samplesheets.
+     Explain what rows and columns represent. For instance (please edit as appropriate):
+
+First, prepare a samplesheet with your input data that looks as follows:
+
+`samplesheet.csv`:
+
+```csv
+sample,fastq_1,fastq_2
+CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
 ```
 
-### Conda setup 
+Each row represents a fastq file (single-end) or a pair of fastq files (paired end).
+
+-->
+
+Now, you can run the pipeline using:
+
+<!-- TODO nf-core: update the following command to include all required parameters for a minimal example -->
+
 ```bash
-conda create -n gapms_pipeline_env -c conda-forge -c bioconda nextflow python=3.11 -y
-conda activate gapms_pipeline_env
-
-git clone https://github.com/qussai96/GAP-MS-nextflow.git
-cd GAP-MS-nextflow
-pip install .
-```
-## Usage 
-### Download of licensed FragPipe components
-FragPipe requires the licensed components MSFragger, IonQuant, and DiaTracer. These tools are available free of charge for academic research, non-commercial, and educational use under an academic license. For commercial use, visit [Fragmatics](https://www.fragmatics.com/) or contact info@fragmatics.com. Aditional information is available at the [FragPipe](https://fragpipe.nesvilab.org/docs/tutorial_fragpipe.html) website.
-
-If the licensed components have already been obtained, their location can be provided using the --config_tools_folder parameter.
-
-If the components are not yet available, an automated download process is initiated when the pipeline starts. During this process, the user's first name, last name, academic email address, and institution must be provided. A six-character verification code is then sent by email and must be entered into the terminal. Once the download has completed successfully, the remaining pipeline processes start automatically.
-
-### Nextflow config setup
-It is possible to change various settings in the nextflow.config file. If needed, the cluster configuration can be modified, including the CPU/GPU and memory resources allocated to individual processes.
-
-### VARUS Image Creation
-To build the VARUS Singularity container image required for the VARUS workflow step, run:
-```bash
-singularity build varus.sif varus.def
+nextflow run qussai96/gap-flow \
+   -profile <docker/singularity/.../institute> \
+   --input samplesheet.csv \
+   --outdir <OUTDIR>
 ```
 
-### Running the Pipeline
-```bash
-nextflow run main.nf \
-  --raw_ms_files "/path/to/raw_ms_files_folder" \
-  --fasta_file "/path/to/protein_fasta_file" \
-  --genome_fasta "/path/to/genome_fasta"
-```
+> [!WARNING]
+> Please provide pipeline parameters via the CLI or Nextflow `-params-file` option. Custom config files including those provided by the `-c` Nextflow option can be used to provide any configuration _**except for parameters**_; see [docs](https://nf-co.re/docs/running/run-pipelines#using-parameter-files).
 
-## Parameters 
-|Parameter|Description|
-|---------|-----------|
-| --raw_ms_files  | Path to the raw MS files folder (required) |
-| --genome_fasta  | Path to the genome FASTA file (required)  |
-| --fasta_file  | Path to the protein FASTA file (optional) |
+## Credits
 
-**FragPipe Workflow**
-|Parameter|Description|
-|---------|-----------|
-| --config_tools_folder  | Path to the folder containing the required FragPipe tools if MSFragger, IonQuant, and DiaTracer (if avalible) |
-| --add_contaminants  | Enables or disables the addition of contaminants during the decoy generation step (default: true)  |
-| --fragpipe_workflow | Path to a custom workflow file for FragPipe |
+qussai96/gap-flow was originally written by Qussai Abbas, Sonia Blaszczak.
 
-**Gene Prediction Workflow**
-|Parameter|Description|
-|---------|-----------|
-| --genome_option  | Choice of gene prediction tool: Helixer or Tiberius (default: Tiberius) |
-| --lineage_helixer  | Helixer lineage model (default: land_plant)  |
-| --model_cfg  | Tiberius model configuration (default: angiosperms)   |
-| --prediction_gff_file | Path to a user-provided GFF/GTF file. If supplied, Helixer/Tiberius is skipped; otherwise, the selected gene prediction tool generates the GFF/GTF file |
+We thank the following people for their extensive assistance in the development of this pipeline:
 
-**VARUS Workflow**
-|Parameter|Description|
-|---------|-----------|
-| --taxID  | Taxonomic identifier. If --taxID is not specified, the VARUS workflow will be skipped and no BAM files will be produced |
+<!-- TODO nf-core: If applicable, make list of people who have also contributed -->
 
-**GAP-MS Process**
-|Parameter|Description|
-|---------|-----------|
-| --mapping | Optional peptide-to-protein mapping file  |
-| --scores | Optional CSV with columns: Protein, external_scor  |
-| --reference_gtf | Optional reference GTF for comparison  |
-| --reference_fasta | Optional reference protein FASTA  |
-| --iterative | Train an iterative XGBoost model instead of using the pre-trained classifier  |
-| --output | Output directory (default: GAPMS_output/results/) |
+## Contributions and Support
 
+If you would like to contribute to this pipeline, please see the [contributing guidelines](docs/CONTRIBUTING.md).
 
+## Citations
+
+<!-- TODO nf-core: Add citation for pipeline after first release. Uncomment lines below and update Zenodo doi and badge at the top of this file. -->
+<!-- If you use qussai96/gap-flow for your analysis, please cite it using the following doi: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX) -->
+
+<!-- TODO nf-core: Add bibliography of tools and data used in your pipeline -->
+
+An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
+
+This pipeline uses code and infrastructure developed and maintained by the [nf-core](https://nf-co.re) community, reused here under the [MIT license](https://github.com/nf-core/tools/blob/main/LICENSE).
+
+> **The nf-core framework for community-curated bioinformatics pipelines.**
+>
+> Philip Ewels, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso & Sven Nahnsen.
+>
+> _Nat Biotechnol._ 2020 Feb 13. doi: [10.1038/s41587-020-0439-x](https://dx.doi.org/10.1038/s41587-020-0439-x).
