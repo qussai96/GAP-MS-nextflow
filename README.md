@@ -13,17 +13,9 @@
 [![Launch on Seqera Platform](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Seqera%20Platform-%234256e7)](https://cloud.seqera.io/launch?pipeline=https://github.com/qussai96/gap-flow)
 
 ## Introduction
+A proteogenomic analysis pipeline for the validation and refinement of genome annotations using peptide evidence derived from mass spectrometry data. It provides an end-to-end workflow integrating peptide identification using Casanovo or FragPipe, gene prediction using Tiberius or Helixer, and optional complementary transcriptomic evidence through RNA-seq-guided annotation using VARUS. The resulting gene models are assessed using GAP-MS (Gene model Assessment using Peptides from Mass Spectrometry), which evaluates predicted gene models by integrating outputs from downstream subworkflows.
 
-**qussai96/gap-flow** is a bioinformatics pipeline that ...
-
-<!-- TODO nf-core:
-   Complete this sentence with a 2-3 sentence summary of what types of data the pipeline ingests, a brief overview of the
-   major pipeline sections and the types of output it produces. You're giving an overview to someone new
-   to nf-core here, in 15-20 seconds. For an example, see https://github.com/nf-core/rnaseq/blob/master/README.md#introduction
--->
-
-<!-- TODO nf-core: Include a figure that guides the user through the major workflow steps. Many nf-core
-     workflows use the "tube map" design for that. See https://nf-co.re/docs/community/brand/workflow-schematics#examples for examples.   -->
+![Pipeline Workflow](workflow-Strona-2.drawio(1).png)
 <!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))2. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
 
 ## Usage
