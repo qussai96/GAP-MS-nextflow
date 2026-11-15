@@ -39,6 +39,7 @@ Additionally it also includes a reporting workflow incorporating [`MultiQC`](htt
 The pipeline requires Nextflow. Conda can be used to manage the required software environment.
 
 **Miniconda Installation:** 
+
 For more information visit: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 ```bash
 curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -167,7 +168,7 @@ nextflow run main.nf
 | `--iterative` | Trains an iterative XGBoost model instead of using the pre-trained classifier. |
 ## Credits
 
-This pipeline was developed by Sonia Błaszczak under the supervision of Qussai Abbas in the research group of Prof. Dr. rer. nat. Dimitrij Frischmann.
+This pipeline was developed by Sonia Błaszczak under the supervision of [Qussai Abbas](https://scholar.google.com/citations?user=KLm0AFcAAAAJ&hl=en) in the research group of [Prof. Dr. rer. nat. Dimitrij Frischmann](https://www.professoren.tum.de/en/frischman-dimitrij/).
 
 <!--We thank the following people for their extensive assistance in the development of this pipeline:-->
 
