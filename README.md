@@ -53,7 +53,6 @@ conda activate gapms_pipeline_env
 
 git clone https://github.com/qussai96/GAP-MS-nextflow.git
 cd GAP-MS-nextflow
-pip install .
 ```
 
 ### VARUS & TransDecoder Image Creation
