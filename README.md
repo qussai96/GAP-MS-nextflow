@@ -1,4 +1,4 @@
-# Proteogenomics Pipeline
+# Proteogenomics Pipeline for Genome Annotation Assessment
 
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open_In_GitHub_Codespaces-black?labelColor=grey&logo=github)](https://github.com/codespaces/new/qussai96/gap-flow)
 [![GitHub Actions CI Status](https://github.com/qussai96/gap-flow/actions/workflows/nf-test.yml/badge.svg)](https://github.com/qussai96/gap-flow/actions/workflows/nf-test.yml)
